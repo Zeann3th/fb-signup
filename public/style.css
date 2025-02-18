@@ -1,0 +1,135 @@
+@font-face {
+  font-family: 'fbsans';
+  src: url("./FacebookSansRegular.ttf");
+}
+
+.material-symbols-outlined {
+  font-size: 1rem !important;
+}
+
+body {
+     background-color: #f0f2f5;
+     font-family: fbsans, sans-serif;
+     margin: 0;
+     padding: 1.25rem;
+     height: 100vh;
+}
+
+#form-container {
+     background-color: white;
+     border-radius: 0.75rem;
+     box-shadow: 0 0.5rem 0.75rem rgba(0, 0, 0, 0.1);
+     margin: 0 auto;
+     max-width: 30rem;
+     padding: 1rem;
+     overflow: hidden;
+}
+
+#form-header {
+  text-align: center;
+}
+
+#form-header p, .placeholder {
+  color: #666666;
+}
+
+hr {
+     border: none;
+     border-top: 1px solid #dadde1;
+     margin: 1rem 0;
+}
+
+#name-inputs {
+     width: 100%;
+     display: flex;
+     gap: 1rem;
+     margin-bottom: 1rem;
+}
+
+@media (max-width: 768px) {
+    #name-inputs {
+        display: block;
+        width: calc(100% - 1rem);
+    }
+}
+
+input[type="text"], input[type="password"] {
+     border: 1px solid #ccd0d5;
+     border-radius: 0.5rem;
+     font-size: 1rem;
+     padding: 0.75rem;
+     width: 100%;
+     margin-bottom: 1rem;
+}
+
+#date-select {
+     display: flex;
+     gap: 1rem;
+     margin: 1rem 0;
+}
+
+select {
+     background-color: white;
+     border: 1px solid #ccd0d5;
+     border-radius: 0.5rem;
+     font-size: 1rem;
+     padding: 0.5rem;
+     flex: 1;
+}
+
+.gender-options {
+     display: flex;
+     gap: 1rem;
+     margin: 1rem 0 1rem;
+     justify-content: space-between;
+}
+
+@media (max-width: 768px) {
+  .gender-options {
+    display: block;
+  }
+}
+
+.gender-option {
+  display:flex;
+  justify-content: space-between;
+}
+
+.gender-option label {
+  margin-right: 1rem;
+}
+
+#credentials {
+  width: calc(100% - 1.5rem);
+}
+
+#policies {
+  font-size: 0.8rem;
+}
+
+#btn-container, form > a {
+  display: flex;
+  justify-content:center;
+  align-items: center;
+}
+
+button {
+     background-color: #00a400;
+     border: none;
+     border-radius: 0.5rem;
+     color: white;
+     font-size: 1.2rem;
+     font-weight: bold;
+     padding: 0.75rem 2rem;
+     margin: 0 0 0 1rem;
+     cursor: pointer;
+}
+
+a {
+     color: #1877f2;
+     text-decoration: none;
+}
+
+a:hover {
+     text-decoration: underline;
+}

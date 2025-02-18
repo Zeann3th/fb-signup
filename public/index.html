@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Facebook SignUp Clone</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=help" />
+</head>
+
+<body>
+  <div id="form-container">
+    <div id="form-header">
+      <h1><b>Create a new account</b></h1>
+      <p>It's quick and easy.</p>
+      <hr>
+    </div>
+    <form>
+
+      <!--Name-->
+
+      <div id="name-inputs">
+        <input type="text" id="first-name" placeholder="First name" name="firstname">
+        <input type="text" id="sur-name" placeholder="Surname" name="surname">
+      </div>
+
+      <!--DoB-->
+
+      <div>
+        <p>Date of birth <span class="material-symbols-outlined">
+            help
+          </span>
+        </p>
+        <div id="date-select">
+          <select id="day-select">
+          </select>
+          <select id="month-select">
+          </select>
+          <select id="year-select">
+          </select>
+        </div>
+      </div>
+
+      <!--Gender-->
+
+      <p>Gender <span class="material-symbols-outlined">
+          help
+        </span>
+      </p>
+      <div class="gender-options">
+        <fieldset class="gender-option">
+          <label for="female">Female</label>
+          <input type="radio" id="female" name="gender" value="F">
+        </fieldset>
+        <fieldset class="gender-option">
+          <label for="male">Male</label>
+          <input type="radio" id="male" name="gender" value="M">
+        </fieldset>
+        <fieldset class="gender-option">
+          <label for="custom">Custom</label>
+          <input type="radio" id="custom" name="gender" value="X">
+        </fieldset>
+      </div>
+
+      <!--Credentials-->
+
+      <div id="credentials">
+        <input type="text" id="phone-email" placeholder="Mobile number or email address" name="credential">
+        <input type="password" placeholder="New password" name="password">
+      </div>
+
+      <!--Policies-->
+
+      <div id="policies">
+        <p>People who use out service my have uploaded your contact information to Facebook. <a
+            href="https://www.facebook.com/help/637205020878504">Learn more</a>.
+        </p>
+        <p>By clicking Sign Up, you agree to our <a href="https://www.facebook.com/legal/terms/update">Terms</a>,
+          <a href="https://www.facebook.com/privacy/policy/?entry_point=data_policy_redirect&entry=0">Privacy
+            Policy</a> and <a
+            href="https://www.facebook.com/privacy/policies/cookies/?entry_point=cookie_policy_redirect&entry=0">Cookies
+            Policy</a>.
+          You may receive SMS notifications from us and can opt out at any time.
+        </p>
+
+      </div>
+      <div id="btn-container">
+        <button type="submit">Sign Up</button>
+      </div>
+      <br>
+      <a href="#">Already have an account?</a>
+    </form>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
