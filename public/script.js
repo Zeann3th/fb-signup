@@ -39,3 +39,15 @@ for (let i = 1970; i <= new Date().getFullYear(); i++) {
   option.value = i;
   yearSelect.appendChild(option);
 }
+
+let helpBtn1 = document.getElementById("help-btn1");
+helpBtn1.addEventListener("click", () => {
+  let modal1 = document.getElementById("modal1")
+  modal1.style.display = (modal1.style.display === "block") ? "none" : "block";
+})
+
+let helpBtn2 = document.getElementById("help-btn2");
+helpBtn2.addEventListener("click", () => {
+  let modal2 = document.getElementById("modal2");
+  modal2.style.display = (modal2.style.display === "block") ? "none" : "block";
+})

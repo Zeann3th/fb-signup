@@ -5,6 +5,7 @@
 
 .material-symbols-outlined {
   font-size: 1rem !important;
+  cursor: pointer;
 }
 
 body {
@@ -60,6 +61,20 @@ input[type="text"], input[type="password"] {
      padding: 0.75rem;
      width: 100%;
      margin-bottom: 1rem;
+}
+
+.modal-container {
+  position: relative;
+}
+
+.modal {
+  display: none;
+  position: absolute;
+  z-index: 1000;
+  background-color: white;
+  box-shadow: 0 0.5rem 0.75rem rgba(0, 0, 0, 0.1);
+  width: calc(100% - 1.5rem);
+  padding: 1rem;
 }
 
 #date-select {
