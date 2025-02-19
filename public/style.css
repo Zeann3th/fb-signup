@@ -18,6 +18,7 @@ body {
 
 img {
   margin: auto; max-height: 12rem; display: block;
+  margin-bottom: -3rem;
 }
 
 #form-container {
