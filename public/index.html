@@ -4,14 +4,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Facebook SignUp Clone</title>
-  <link rel="icon" href="favicon.ico">
+  <title>Sign up for Facebook</title>
+  <link rel="icon" href="assets/favicon.ico">
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=help" />
 </head>
 
 <body>
+  <img src="assets/logo.svg" alt="Facebook Logo" />
   <div id="form-container">
     <div id="form-header">
       <h1><b>Create a new account</b></h1>
@@ -75,6 +76,16 @@
           <label for="custom">Custom</label>
           <input type="radio" id="custom" name="gender" value="X">
         </fieldset>
+      </div>
+
+      <div id="gender-custom">
+        <select name="pronoun">
+          <option value="0">Select your pronoun</option>
+          <option value="1">She: "Wish her a happy birthday!"</option>
+          <option value="2">He: "Wish him a happy birthday!"</option>
+          <option value="3">They: "Wish them a happy birthday!"</option>
+        </select>
+        <input type="text" placeholder="Gender (optional)">
       </div>
 
       <!--Credentials-->

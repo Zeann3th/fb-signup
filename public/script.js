@@ -1,53 +1,101 @@
-// Global
-let monthSelect = document.getElementById("month-select");
-let daySelect = document.getElementById("day-select");
-let yearSelect = document.getElementById("year-select");
+// Date
+document.addEventListener('DOMContentLoaded', function() {
+  populateDatePicker();
+  document.getElementById('month-select').addEventListener('change', updateDateOptions);
+  document.getElementById('year-select').addEventListener('change', updateDateOptions);
 
-// Day options
-const validMonthDay = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
-const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sepr", "Oct", "Nov", "Dec"];
-
-// Initial
-daySelect.innerHTML = `<option value=''>${new Date().getDate()}</option>`;
-let month = new Date().getMonth();
-monthSelect.innerHTML = `<option value=month>${monthNames[month]}</option>`;
-yearSelect.innerHTML = `<option value=''>${new Date().getFullYear()}</option>`;
-
-// Dynamic
-monthSelect.addEventListener("change", (e) => {
-  let selectedMonth = e.target.value;
-  for (let i = 1; i <= validMonthDay[selectedMonth - 1]; i++) {
-    let option = document.createElement("option");
-    option.text = i;
-    option.value = i;
-    daySelect.appendChild(option);
-  }
+  document.querySelectorAll("input[name='gender']").forEach((radio) => {
+    radio.addEventListener('change', toggleCustomGender);
+  })
 });
 
-// Month options
-for (let i = 1; i <= 12; i++) {
-  let option = document.createElement("option");
-  option.text = monthNames[i - 1];
-  option.value = i;
-  monthSelect.appendChild(option);
+function checkLeapYear(year) {
+  if ((year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0)) {
+    return true;
+  } else {
+    return false;
+  }
 }
 
-// Year options
-for (let i = 1970; i <= new Date().getFullYear(); i++) {
-  let option = document.createElement("option");
-  option.text = i;
-  option.value = i;
-  yearSelect.appendChild(option);
+function populateDatePicker() {
+  const daySelect = document.getElementById('day-select');
+  const monthSelect = document.getElementById('month-select');
+  const yearSelect = document.getElementById('year-select');
+
+  const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+  months.forEach((month, index) => {
+    const option = document.createElement('option');
+    option.value = index + 1;
+    option.textContent = month;
+    monthSelect.appendChild(option);
+  });
+
+  const currentYear = new Date().getFullYear();
+  for (let i = currentYear - 13; i >= 1920; i--) {
+    const option = document.createElement('option');
+    option.value = i;
+    option.textContent = i;
+    yearSelect.appendChild(option);
+  }
+
+  updateDateOptions();
 }
 
-let helpBtn1 = document.getElementById("help-btn1");
-helpBtn1.addEventListener("click", () => {
-  let modal1 = document.getElementById("modal1")
-  modal1.style.display = (modal1.style.display === "block") ? "none" : "block";
-})
+function updateDateOptions() {
+  const daySelect = document.getElementById('day-select');
+  const monthSelect = document.getElementById('month-select');
+  const yearSelect = document.getElementById('year-select');
 
-let helpBtn2 = document.getElementById("help-btn2");
-helpBtn2.addEventListener("click", () => {
+  const selectedMonth = parseInt(monthSelect.value);
+  const selectedYear = parseInt(yearSelect.value);
+
+  let dateLimit = 31;
+
+  if (selectedMonth === 2) {
+    if (checkLeapYear(selectedYear)) {
+      dateLimit = 29;
+    } else {
+      dateLimit = 28;
+    }
+  } else if ([4, 6, 9, 11].includes(selectedMonth)) {
+    dateLimit = 30;
+  }
+
+  const currentDate = parseInt(daySelect.value) || 1;
+
+  daySelect.innerHTML = '';
+
+  for (let i = 1; i <= dateLimit; i++) {
+    const option = document.createElement('option');
+    option.value = i;
+    option.textContent = i;
+    daySelect.appendChild(option);
+  }
+
+  if (currentDate <= dateLimit) {
+    daySelect.value = currentDate;
+  } else {
+    daySelect.value = dateLimit;
+  }
+}
+
+function toggleCustomGender() {
+  const customGender = document.getElementById("gender-custom");
+  const selectedGender = document.querySelector("input[name='gender']:checked");
+  if (selectedGender && selectedGender.value === "X") {
+    customGender.style.display = "block";
+  } else {
+    customGender.style.display = "none";
+  }
+}
+
+// Modals
+document.getElementById("help-btn1").addEventListener("click", () => {
+  let modal1 = document.getElementById("modal1");
+  modal1.style.display = modal1.style.display === "block" ? "none" : "block";
+});
+
+document.getElementById("help-btn2").addEventListener("click", () => {
   let modal2 = document.getElementById("modal2");
-  modal2.style.display = (modal2.style.display === "block") ? "none" : "block";
-})
+  modal2.style.display = modal2.style.display === "block" ? "none" : "block";
+});
